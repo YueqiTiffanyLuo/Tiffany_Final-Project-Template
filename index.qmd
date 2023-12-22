@@ -1,33 +1,15 @@
 ---
-title: "MUSA 550 Final Project Template"
-subtitle: "An example website demonstrating the power of Quarto for sharing analyses on the web"
+title: "Final Project: Community Health Index in Philadelphia"
+subtitle: "Tiffany Luo"
 ---
 
-## Welcome!
+## Overview
 
-We can create beautiful websites that describe complex technical analyses in Python using [Quarto](https://quarto.org) 
-and deploy them online using [GitHub Pages](https://pages.github.com/). This combination of tools is a really powerful way 
-to create and share your work. This website is a demo that is meant to be used to create your own Quarto website for the 
-final project in MUSA 550. 
+In this project, I am working with geospatial data related to community health and amenities. The analysis involves exploring parks, health centers, and perceived health levels in neighborhoods. Walkability analysis is conducted to assess the proximity of health centers and parks, contributing to the understanding of community health. Regression analysis is performed to identify correlations between the number of health centers, parks, and the percentage of adults reporting fair or poor health.
 
-Quarto is a relatively new tool, but is becoming popular quickly. It's a successor 
-to the Rmarkdown ecosystem that combines functionality into a single tool and also extends its computation power to other
-languages. Most importantly for us, Quarto supports executing Python code, allowing us to convert Jupyter notebooks to HTML and share them online.  
+The creation of a Community Health Index is motivated by a desire to comprehensively assess community health. Inspired by the CDC's Social Vulnerability Index (SVI), this index combines variables such as the number of health centers, parks, and the percentage of residents reporting fair or poor health. I aim to create a holistic measure, akin to the SVI, to evaluate community health levels. The index involves normalizing and aggregating various factors, allowing for a nuanced understanding of vulnerability and health disparities within different neighborhoods.
 
-::: {.callout-important}
-This template site, including the layout it uses, is just a suggested place to start! For your final project, you're welcome (and encouraged) to 
-make as many changes as you like to best fit your project.
-:::
-
-## Find out more
-
-The code for this repository is hosted on our course's GitHub page: [https://github.com/MUSA-550-Fall-2023/quarto-website-template](https://github.com/MUSA-550-Fall-2023/quarto-website-template).
-
-We covered the basics of getting started with Quarto and GitHub Pages in week 9. Take a look at
-[the slides for lecture 9A](https://musa-550-fall-2023.github.io/content/week-9/lecture-9A.html) to find out more.
-
-
-
+The exploration of parks, health centers, and perceived health levels, coupled with walkability analysis, regression, and the creation of a Community Health Index, collectively contribute to a multidimensional assessment of community health and vulnerability. As result, I identified the neighborhoods in Philadelphia that most needs  public health strategies and interventions.
 
 
 

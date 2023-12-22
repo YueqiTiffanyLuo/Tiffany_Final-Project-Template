@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Final Project: Community Health Index – index</title>
+<title>Final Project: Community Health Index - 3. Regression Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,6 +58,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -72,7 +75,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analysis/index.html">Analysis</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analysis/index.html">Analysis</a></li><li class="breadcrumb-item"><a href="../analysis/Step3.html">3. Regression Analysis</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -82,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
@@ -105,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../analysis/index.html" class="sidebar-item-text sidebar-link active">
+            <a href="../analysis/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Analysis</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -126,7 +129,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analysis/Step3.html" class="sidebar-item-text sidebar-link">
+  <a href="../analysis/Step3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">3. Regression Analysis</span></a>
   </div>
 </li>
@@ -143,28 +146,184 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#analysis" id="toc-analysis" class="nav-link active" data-scroll-target="#analysis">Analysis</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MUSA-550-Fall-2023/Tiffany_Final-Project-Template/blob/main/analysis/index.qmd" class="toc-action">View source</a></p></div></div></nav>
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">3. Regression Analysis</h1>
+</div>
 
 
 
-<section id="analysis" class="level1">
-<h1>Analysis</h1>
-<p>This section includes the comprehensive analysis and result for the project.</p>
-<p>This project is done in four steps: 1. Explore perceived health condition and the number and location of parks and health centers 2. Conduct walkability analysis 3. Run OLS Regrssion 4. Develop Community Health Index</p>
-<p>All of the steps are accompanied with static and interactive visulization for demonstration purpose.</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Physical amenities can be related to sentiments about community health condition. Therefore, I ran a OLS regression to explore the correlation between the number of health center and number of parks in one neighborhood and percentage of adults who rate their health as “fair” or “poor” (sentiments of how people think of their health conditions). Regression analysis helps in understanding the relationships between different variables. In this case, it helps determine whether there is a statistically significant correlation between the number of health centers and parks and the perceived health conditions of adults in a neighborhood. Understanding the factors that influence perceived health conditions can guide public health interventions. For example, if there is a positive correlation, it might indicate that improving access to health centers and recreational spaces positively affects residents’ health perceptions. This information can be valuable for policymakers, urban planners, or health professionals to identify areas for improvement.</p>
+<div class="cell" data-tags="[]" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
 
 
-</section>
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">OBJECTID_1</th>
+<th data-quarto-table-cell-role="th">OBJECTID</th>
+<th data-quarto-table-cell-role="th">DIST_NAME</th>
+<th data-quarto-table-cell-role="th">ABBREV</th>
+<th data-quarto-table-cell-role="th">Shape__Area</th>
+<th data-quarto-table-cell-role="th">Shape__Length</th>
+<th data-quarto-table-cell-role="th">PlanningDist</th>
+<th data-quarto-table-cell-role="th">DaytimePop</th>
+<th data-quarto-table-cell-role="th">geometry</th>
+<th data-quarto-table-cell-role="th">health_centers_count</th>
+<th data-quarto-table-cell-role="th">num_health_center_per_area</th>
+<th data-quarto-table-cell-role="th">parks_count</th>
+<th data-quarto-table-cell-role="th">num_parks_per_area</th>
+<th data-quarto-table-cell-role="th">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>14</td>
+<td>River Wards</td>
+<td>RW</td>
+<td>2.107270e+08</td>
+<td>66931.595020</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>POLYGON ((2711323.754 255818.110, 2711628.628 ...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>21</td>
+<td>0.006289</td>
+<td>0.282</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>3</td>
+<td>North Delaware</td>
+<td>NDEL</td>
+<td>2.700915e+08</td>
+<td>89213.074378</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>POLYGON ((2743358.021 274541.170, 2743413.946 ...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>28</td>
+<td>0.006534</td>
+<td>0.221</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>0</td>
+<td>Lower Far Northeast</td>
+<td>LFNE</td>
+<td>3.068529e+08</td>
+<td>92703.285159</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>POLYGON ((2747427.678 297865.068, 2747454.031 ...</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>17</td>
+<td>0.003487</td>
+<td>0.162</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>9</td>
+<td>Central</td>
+<td>CTR</td>
+<td>1.782880e+08</td>
+<td>71405.143450</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>POLYGON ((2697746.272 241701.844, 2697962.079 ...</td>
+<td>8.0</td>
+<td>0.002835</td>
+<td>77</td>
+<td>0.027284</td>
+<td>0.136</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>10</td>
+<td>University Southwest</td>
+<td>USW</td>
+<td>1.296468e+08</td>
+<td>65267.676141</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>POLYGON ((2686719.537 239936.817, 2686992.274 ...</td>
+<td>6.0</td>
+<td>0.002924</td>
+<td>16</td>
+<td>0.007798</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:             Percentage   R-squared:                       0.025
+Model:                            OLS   Adj. R-squared:                 -0.106
+Method:                 Least Squares   F-statistic:                    0.1884
+Date:                Fri, 22 Dec 2023   Prob (F-statistic):              0.830
+Time:                        02:29:39   Log-Likelihood:                 17.006
+No. Observations:                  18   AIC:                            -28.01
+Df Residuals:                      15   BIC:                            -25.34
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================================
+                                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------------
+const                          0.1873      0.040      4.726      0.000       0.103       0.272
+num_health_center_per_area    -6.9338     28.128     -0.247      0.809     -66.886      53.019
+num_parks_per_area             3.0616      5.495      0.557      0.586      -8.651      14.774
+==============================================================================
+Omnibus:                        1.450   Durbin-Watson:                   1.920
+Prob(Omnibus):                  0.484   Jarque-Bera (JB):                1.102
+Skew:                          -0.570   Prob(JB):                        0.576
+Kurtosis:                       2.590   Cond. No.                     1.17e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.17e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+Correlation between Percentage and num_health_center_per_area: 0.0657
+Correlation between Percentage and num_parks_per_area: 0.1434</code></pre>
+</div>
+</div>
+<p>R-squared measures the proportion of the variance in the dependent variable that is explained by the independent variables. In this case, the R-squared is 0.025, suggesting that only a small percentage (2.5%) of the variability in Percentage is explained by the independent variables. The p-values associated with each coefficient test the null hypothesis that the corresponding coefficient is zero. High p-values (&gt; 0.05) indicate that the corresponding independent variable is not statistically significant. In summary, based on this analysis, there is little evidence to suggest a significant linear relationship between the independent variables num_health_center_per_area and num_parks_per_area and the dependent variable Percentage. Therefore, the number of health center and number of parks in one neighborhood don’t have much correlation with how people think of their health conditions.</p>
+<p>Although there is not much correlations among the three indicators, it could be meaningful to create a Community Health Index by aggregating the number of health centers, number of parks, and the percentage of adults rating their health as “fair” or “poor”.</p>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -406,7 +565,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">© Tiffany luo, 2023</div>   
     <div class="nav-footer-center">
       &nbsp;
-    </div>
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MUSA-550-Fall-2023/Tiffany_Final-Project-Template/blob/main/analysis/Step3.ipynb" class="toc-action">View source</a></p></div></div></div>
     <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
